@@ -111,7 +111,7 @@ const StreakModal = ({
     } else {
       setDiscountPercent(0);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [streakDiscountCouponEnabled, username, verifiedMode]);
 
   if (!isStreakCelebrationOpen) {
@@ -166,10 +166,10 @@ const StreakModal = ({
           {!wideScreen && <img src={StreakMobileImage} alt="" className="img-fluid" />}
           {wideScreen && <img src={StreakDesktopImage} alt="" className="img-fluid" />}
         </p>
-        { queryingDiscount && (
+        {queryingDiscount && (
           <Spinner animation="border" variant="primary" />
         )}
-        { !queryingDiscount && !showOffer && (
+        {!queryingDiscount && !showOffer && (
           <div className="d-flex py-3 bg-light-300">
             <Icon className="col-small ml-3" src={Lightbulb} />
             <div className="col-11 factoid-wrapper">
@@ -177,7 +177,7 @@ const StreakModal = ({
             </div>
           </div>
         )}
-        { !queryingDiscount && showOffer && (
+        {!queryingDiscount && showOffer && (
           <Alert variant="success" className="px-0">
             <div className="d-flex">
               <Icon className="col-small ml-3 text-success-500" src={MoneyFilled} />
@@ -199,18 +199,18 @@ const StreakModal = ({
         )}
       </ModalDialog.Body>
       <ModalDialog.Footer className="modal-footer d-block">
-        { !queryingDiscount && showOffer && (
+        {!queryingDiscount && showOffer && (
           <>
             {!wideScreen && (
               <>
                 <UpgradeNowButton
-                  className="upgrade mb-3"
+                  className="upgrade mb-3 btn-primary"
                   size="sm"
                   offer={offer}
                   variant="brand"
                   verifiedMode={mode}
                 />
-                <ModalDialog.CloseButton variant="outline-brand" className="btn-sm">
+                <ModalDialog.CloseButton variant="outline-brand" className="btn-sm btn-primary">
                   {intl.formatMessage(messages.streakButtonAA759)}
                 </ModalDialog.CloseButton>
               </>
@@ -223,15 +223,15 @@ const StreakModal = ({
                   variant="brand"
                   verifiedMode={mode}
                 />
-                <ModalDialog.CloseButton variant="outline-brand">
+                <ModalDialog.CloseButton variant="outline-brand" className="btn-primary">
                   {intl.formatMessage(messages.streakButtonAA759)}
                 </ModalDialog.CloseButton>
               </>
             )}
           </>
         )}
-        { !queryingDiscount && !showOffer && (
-          <ModalDialog.CloseButton className="px-5" variant="primary"><CloseText intl={intl} /></ModalDialog.CloseButton>
+        {!queryingDiscount && !showOffer && (
+          <ModalDialog.CloseButton className="px-5  btn-primary" variant="primary"><CloseText intl={intl} /></ModalDialog.CloseButton>
         )}
       </ModalDialog.Footer>
     </ModalDialog>
