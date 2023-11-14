@@ -46,6 +46,7 @@ function LockedDonutSegment({ intl, lockedPercentage }) {
         <g
           width="6"
           height="21"
+          // eslint-disable-next-line react/no-unknown-property
           viewBox="0 0 21 6"
           style={{
             transformOrigin: 'center',

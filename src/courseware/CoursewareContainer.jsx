@@ -46,7 +46,7 @@ const checkSectionToSequenceRedirect = memoize((courseStatus, courseId, sequence
     // If the section is non-empty, redirect to its first sequence.
     if (section.sequenceIds && section.sequenceIds[0]) {
       history.replace(`/course/${courseId}/${section.sequenceIds[0]}`);
-    // Otherwise, just go to the course root, letting the resume redirect take care of things.
+      // Otherwise, just go to the course root, letting the resume redirect take care of things.
     } else {
       history.replace(`/course/${courseId}`);
     }
@@ -55,7 +55,13 @@ const checkSectionToSequenceRedirect = memoize((courseStatus, courseId, sequence
 
 // Look at where this is called in componentDidUpdate for more info about its usage
 const checkUnitToSequenceUnitRedirect = memoize((
-  courseStatus, courseId, sequenceStatus, sequenceMightBeUnit, sequenceId, section, routeUnitId,
+  courseStatus,
+  courseId,
+  sequenceStatus,
+  sequenceMightBeUnit,
+  sequenceId,
+  section,
+  routeUnitId,
 ) => {
   if (courseStatus === 'loaded' && sequenceStatus === 'failed' && !section && !routeUnitId) {
     if (sequenceMightBeUnit) {
@@ -127,6 +133,7 @@ class CoursewareContainer extends Component {
       sequenceStatus,
       sequence,
     } = this.props;
+    // eslint-disable-next-line react/prop-types
     if (sequenceStatus === 'loaded' && sequence.saveUnitPosition && unitId) {
       const activeUnitIndex = sequence.unitIds.indexOf(unitId);
       this.props.saveSequencePosition(courseId, sequenceId, activeUnitIndex);
@@ -226,7 +233,13 @@ class CoursewareContainer extends Component {
     //    /course/:courseId/:unitId -> /course/:courseId/:sequenceId/:unitId
     // by filling in the ID of the parent sequence of :unitId.
     checkUnitToSequenceUnitRedirect(
-      courseStatus, courseId, sequenceStatus, sequenceMightBeUnit, sequenceId, sectionViaSequenceId, routeUnitId,
+      courseStatus,
+      courseId,
+      sequenceStatus,
+      sequenceMightBeUnit,
+      sequenceId,
+      sectionViaSequenceId,
+      routeUnitId,
     );
 
     // Check sequence to sequence-unit redirect:
@@ -255,7 +268,7 @@ class CoursewareContainer extends Component {
 
     this.props.checkBlockCompletion(courseId, sequenceId, routeUnitId);
     history.push(`/course/${courseId}/${sequenceId}/${nextUnitId}`);
-  }
+  };
 
   handleNextSequenceClick = () => {
     const {
@@ -274,14 +287,14 @@ class CoursewareContainer extends Component {
         handleNextSectionCelebration(sequenceId, nextSequence.id);
       }
     }
-  }
+  };
 
   handlePreviousSequenceClick = () => {
     const { previousSequence, courseId } = this.props;
     if (previousSequence !== null) {
       history.push(`/course/${courseId}/${previousSequence.id}/last`);
     }
-  }
+  };
 
   render() {
     const {
