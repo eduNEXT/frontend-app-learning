@@ -12,6 +12,8 @@ import { faCheckCircle as fasCheckCircle } from '@fortawesome/free-solid-svg-ico
 import { faCheckCircle as farCheckCircle } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+import { Icon } from '@edx/paragon';
+import { DisabledVisible } from '@edx/paragon/icons';
 import EffortEstimate from '../../shared/effort-estimate';
 import { useModel } from '../../generic/model-store';
 import messages from './messages';
@@ -29,6 +31,7 @@ const SequenceLink = ({
     due,
     showLink,
     title,
+    hideFromTOC,
   } = sequence;
   const {
     userTimezone,
@@ -106,12 +109,19 @@ const SequenceLink = ({
               />
             )}
           </div>
-          <div className="col-10 p-0 ml-3 text-break">
+          <div className="col-auto p-0 ml-3 text-break">
             <span className="align-middle">{displayTitle}</span>
             <span className="sr-only">
               , {intl.formatMessage(complete ? messages.completedAssignment : messages.incompleteAssignment)}
             </span>
             <EffortEstimate className="ml-3 align-middle" block={sequence} />
+          </div>
+          <div className="col-9">
+            {hideFromTOC && (
+            <span className="small d-flex">
+              <Icon className="mr-2" src={DisabledVisible} />Subsections are not navigable beetwen each other, they can only be accessed through their link.
+            </span>
+            )}
           </div>
         </div>
         <div className="row w-100 m-0 ml-3 pl-3">
