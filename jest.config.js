@@ -10,5 +10,8 @@ module.exports = createConfig('jest', {
     'src/.*\\.exp\\..*',
   ],
   testTimeout: 30000,
-  testEnvironment: 'jsdom'
+  testEnvironment: 'jsdom',
+  moduleNameMapper: {
+    "^axios$": "axios/dist/axios.js"
+  },
 });

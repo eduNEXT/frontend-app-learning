@@ -1,7 +1,7 @@
 import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext, ErrorPage } from '@edx/frontend-platform/react';
-import { Modal } from '@edx/paragon';
+import { ModalDialog } from '@edx/paragon';
 import PropTypes from 'prop-types';
 import React, {
   Suspense, useCallback, useContext, useEffect, useLayoutEffect, useState,
@@ -196,29 +196,25 @@ const Unit = ({
         <ErrorPage />
       )}
       {modalOptions.open && (
-        <Modal
-          body={(
-            <>
-              {modalOptions.body
-                ? <div className="unit-modal">{ modalOptions.body }</div>
-                : (
-                  <iframe
-                    title={modalOptions.title}
-                    allow={IFRAME_FEATURE_POLICY}
-                    frameBorder="0"
-                    src={modalOptions.url}
-                    style={{
-                      width: '100%',
-                      height: '100vh',
-                    }}
-                  />
-                )}
-            </>
-          )}
+        <ModalDialog
+          className="modal-lti"
           onClose={() => { setModalOptions({ open: false }); }}
-          open
-          dialogClassName="modal-lti"
-        />
+          isOpen
+        >
+          <ModalDialog.Body className="modal-lti">
+            {modalOptions.body
+              ? <div className="unit-modal">{modalOptions.body}</div>
+              : (
+                <iframe
+                  title={modalOptions.title}
+                  allow={IFRAME_FEATURE_POLICY}
+                  frameBorder="0"
+                  src={modalOptions.url}
+                  style={{ width: '100%', height: '100vh' }}
+                />
+              )}
+          </ModalDialog.Body>
+        </ModalDialog>
       )}
       {!shouldDisplayHonorCode && (
         <div className="unit-iframe-wrapper">
