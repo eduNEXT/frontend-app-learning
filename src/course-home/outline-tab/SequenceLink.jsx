@@ -117,13 +117,16 @@ const SequenceLink = ({
             <EffortEstimate className="ml-3 align-middle" block={sequence} />
           </div>
         </div>
+        {hideFromTOC && (
         <div className="row w-100 my-2 mx-4 pl-3">
-          {hideFromTOC && (
           <span className="small d-flex">
-            <Icon className="mr-2" src={DisabledVisible} />Subsections are not navigable beetwen each other, they can only be accessed through their link.
+            <Icon className="mr-2" src={DisabledVisible} data-testid="hide-from-toc-sequence-link-icon" />
+            <span data-testid="hide-from-toc-sequence-link-text">
+              Subsections are not navigable between each other, they can only be accessed through their link.
+            </span>
           </span>
-          )}
         </div>
+        )}
         <div className="row w-100 m-0 ml-3 pl-3">
           <small className="text-body pl-2">
             {due ? dueDateMessage : noDueDateMessage}
