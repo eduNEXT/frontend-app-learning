@@ -70,14 +70,18 @@ const Section = ({
           , {intl.formatMessage(complete ? messages.completedSection : messages.incompleteSection)}
         </span>
       </div>
+      {hideFromTOC && (
       <div className="row">
         {hideFromTOC && (
           <span className="small d-flex align-content-end">
-            <Icon className="mr-2" src={DisabledVisible} />
-            {intl.formatMessage(messages.hiddenSection)}
+            <Icon className="mr-2" src={DisabledVisible} data-testid="hide-from-toc-section-icon" />
+            <span data-testid="hide-from-toc-section-text">
+              {intl.formatMessage(messages.hiddenSection)}
+            </span>
           </span>
         )}
       </div>
+      )}
     </div>
   );
 
