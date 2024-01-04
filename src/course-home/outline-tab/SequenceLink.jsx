@@ -120,7 +120,8 @@ const SequenceLink = ({
         <div className="row w-100 my-2 mx-4 pl-3">
           {hideFromTOC && (
           <span className="small d-flex">
-            <Icon className="mr-2" src={DisabledVisible} />Subsections are not navigable beetwen each other, they can only be accessed through their link.
+            <Icon className="mr-2" src={DisabledVisible} />
+            {intl.formatMessage(messages.hiddenSequenceLink)}
           </span>
           )}
         </div>
