@@ -74,7 +74,7 @@ const Section = ({
         {hideFromTOC && (
           <span className="small d-flex align-content-end">
             <Icon className="mr-2" src={DisabledVisible} />
-            Hidden in Course Outline, accessible via link
+            {intl.formatMessage(messages.hiddenSection)}
           </span>
         )}
       </div>
