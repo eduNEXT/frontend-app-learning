@@ -38,12 +38,12 @@ const messages = defineMessages({
   },
   hiddenSection: {
     id: 'learning.outline.hiddenSection',
-    defaultMessage: 'Hidden in Course Outline, accessible via link.',
+    defaultMessage: 'Hidden in Course Outline, accessible via link',
     description: 'Label for hidden section in course outline',
   },
   hiddenSequenceLink: {
     id: 'learning.outline.hiddenSequenceLink',
-    defaultMessage: 'Subsections are not navigable beetwen each other, they can only be accessed through their link.',
+    defaultMessage: 'Subsections are not navigable between each other, they can only be accessed through their link.',
     description: 'Label for hidden sequence in course outline',
   },
   dates: {
