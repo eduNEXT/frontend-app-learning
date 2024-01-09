@@ -14,14 +14,14 @@ import UnitNavigationEffortEstimate from './UnitNavigationEffortEstimate';
 import { useSequenceNavigationMetadata } from './hooks';
 import messages from './messages';
 
-function UnitNavigation({
+const UnitNavigation = ({
   intl,
   sequenceId,
   unitId,
   onClickPrevious,
   onClickNext,
   goToCourseExitPage,
-}) {
+}) => {
   const { isFirstUnit, isLastUnit } = useSequenceNavigationMetadata(sequenceId, unitId);
   const { courseId } = useSelector(state => state.courseware);
 
@@ -61,7 +61,7 @@ function UnitNavigation({
       {renderNextButton()}
     </div>
   );
-}
+};
 
 UnitNavigation.propTypes = {
   intl: intlShape.isRequired,

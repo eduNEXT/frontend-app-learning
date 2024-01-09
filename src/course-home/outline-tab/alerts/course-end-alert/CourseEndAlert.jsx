@@ -11,7 +11,7 @@ import { Info } from '@edx/paragon/icons';
 
 const DAY_MS = 24 * 60 * 60 * 1000; // in ms
 
-function CourseEndAlert({ payload }) {
+const CourseEndAlert = ({ payload }) => {
   const {
     description,
     endDate,
@@ -83,7 +83,7 @@ function CourseEndAlert({ payload }) {
       {description}
     </Alert>
   );
-}
+};
 
 CourseEndAlert.propTypes = {
   payload: PropTypes.shape({

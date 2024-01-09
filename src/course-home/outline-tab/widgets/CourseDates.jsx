@@ -8,11 +8,11 @@ import DateSummary from '../DateSummary';
 import messages from '../messages';
 import { useModel } from '../../../generic/model-store';
 
-function CourseDates({
+const CourseDates = ({
   intl,
   /** [MM-P2P] Experiment */
   mmp2p,
-}) {
+}) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -51,7 +51,7 @@ function CourseDates({
       </div>
     </section>
   );
-}
+};
 
 CourseDates.propTypes = {
   intl: intlShape.isRequired,

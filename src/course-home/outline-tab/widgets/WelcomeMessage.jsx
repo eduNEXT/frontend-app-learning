@@ -11,7 +11,7 @@ import messages from '../messages';
 import { useModel } from '../../../generic/model-store';
 import { dismissWelcomeMessage } from '../../data/thunks';
 
-function WelcomeMessage({ courseId, intl }) {
+const WelcomeMessage = ({ courseId, intl }) => {
   const {
     welcomeMessageHtml,
   } = useModel('outline', courseId);
@@ -69,7 +69,7 @@ function WelcomeMessage({ courseId, intl }) {
       </TransitionReplace>
     </Alert>
   );
-}
+};
 
 WelcomeMessage.propTypes = {
   courseId: PropTypes.string.isRequired,

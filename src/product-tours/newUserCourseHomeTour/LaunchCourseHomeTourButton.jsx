@@ -12,7 +12,7 @@ import { useModel } from '../../generic/model-store';
 import { launchCourseHomeTour } from '../data/slice';
 import messages from '../messages';
 
-function LaunchCourseHomeTourButton({ intl, srOnly }) {
+const LaunchCourseHomeTourButton = ({ intl, srOnly }) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -55,7 +55,7 @@ function LaunchCourseHomeTourButton({ intl, srOnly }) {
       )}
     </>
   );
-}
+};
 
 LaunchCourseHomeTourButton.defaultProps = {
   srOnly: false,

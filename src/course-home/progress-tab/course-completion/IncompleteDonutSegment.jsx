@@ -6,7 +6,7 @@ import { OverlayTrigger, Popover } from '@edx/paragon';
 
 import messages from './messages';
 
-function IncompleteDonutSegment({ incompletePercentage, intl }) {
+const IncompleteDonutSegment = ({ incompletePercentage, intl }) => {
   if (!incompletePercentage) {
     return null;
   }
@@ -49,7 +49,7 @@ function IncompleteDonutSegment({ incompletePercentage, intl }) {
       </OverlayTrigger>
     </g>
   );
-}
+};
 
 IncompleteDonutSegment.propTypes = {
   incompletePercentage: PropTypes.number.isRequired,

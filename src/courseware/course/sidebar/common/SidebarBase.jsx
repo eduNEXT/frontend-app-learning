@@ -8,7 +8,7 @@ import { useEventListener } from '../../../../generic/hooks';
 import messages from '../../messages';
 import SidebarContext from '../SidebarContext';
 
-function SidebarBase({
+const SidebarBase = ({
   intl,
   title,
   ariaLabel,
@@ -17,7 +17,7 @@ function SidebarBase({
   children,
   showTitleBar,
   width,
-}) {
+}) => {
   const {
     toggleSidebar,
     shouldDisplayFullScreen,
@@ -81,7 +81,7 @@ function SidebarBase({
       {children}
     </section>
   );
-}
+};
 
 SidebarBase.propTypes = {
   intl: intlShape.isRequired,

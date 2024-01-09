@@ -22,7 +22,7 @@ import messages from './messages';
 /** [MM-P2P] Experiment */
 import { MMP2PFlyoverTriggerMobile } from '../../../../experiments/mm-p2p';
 
-function SequenceNavigation({
+const SequenceNavigation = ({
   intl,
   unitId,
   sequenceId,
@@ -32,7 +32,7 @@ function SequenceNavigation({
   previousSequenceHandler,
   goToCourseExitPage,
   mmp2p,
-}) {
+}) => {
   const sequence = useModel('sequences', sequenceId);
   const { isFirstUnit, isLastUnit } = useSequenceNavigationMetadata(sequenceId, unitId);
   const {
@@ -94,7 +94,7 @@ function SequenceNavigation({
       { mmp2p.state.isEnabled && <MMP2PFlyoverTriggerMobile options={mmp2p} /> }
     </nav>
   );
-}
+};
 
 SequenceNavigation.propTypes = {
   intl: intlShape.isRequired,

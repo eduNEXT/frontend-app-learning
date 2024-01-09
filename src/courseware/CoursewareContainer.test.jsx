@@ -24,11 +24,10 @@ import { buildOutlineFromBlocks } from './data/__factories__/learningSequencesOu
 // to have been passed into the component.  Separate tests can handle unit rendering, but this
 // proves that the component is rendered and receives the correct props.  We probably COULD render
 // Unit.jsx and its iframe in this test, but it's already complex enough.
-function MockUnit({ courseId, id }) { // eslint-disable-line react/prop-types
-  return (
+const MockUnit = ({ courseId, id }) => // eslint-disable-line react/prop-types
+  (
     <div className="fake-unit">Unit Contents {courseId} {id}</div>
   );
-}
 
 jest.mock(
   './course/sequence/Unit',
@@ -250,9 +249,7 @@ describe('CoursewareContainer', () => {
     describe('when the URL contains a section ID instead of a sequence ID', () => {
       const {
         courseBlocks, unitTree, sequenceTree, sectionTree,
-      } = buildBinaryCourseBlocks(
-        courseId, courseHomeMetadata.title,
-      );
+      } = buildBinaryCourseBlocks(courseId, courseHomeMetadata.title);
 
       function setUrl(urlSequenceId, urlUnitId = null) {
         history.push(`/course/${courseId}/${urlSequenceId}/${urlUnitId || ''}`);

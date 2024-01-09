@@ -50,10 +50,10 @@ async function calculateVoucherDiscount(voucher, sku, username) {
     .then(res => camelCaseObject(res));
 }
 
-function StreakModal({
+const StreakModal = ({
   courseId, metadataModel, streakLengthToCelebrate, intl, isStreakCelebrationOpen,
   closeStreakCelebration, streakDiscountCouponEnabled, verifiedMode, ...rest
-}) {
+}) => {
   if (!isStreakCelebrationOpen) {
     return null;
   }
@@ -108,14 +108,12 @@ function StreakModal({
     }
   }, [streakDiscountCouponEnabled, username, verifiedMode]);
 
-  function CloseText() {
-    return (
-      <span>
-        {intl.formatMessage(messages.streakButton)}
-        <span className="sr-only">. {intl.formatMessage(messages.streakButtonSrOnly)}</span>
-      </span>
-    );
-  }
+  const CloseText = () => (
+    <span>
+      {intl.formatMessage(messages.streakButton)}
+      <span className="sr-only">. {intl.formatMessage(messages.streakButtonSrOnly)}</span>
+    </span>
+  );
 
   let upgradeUrl;
   let mode;
@@ -235,7 +233,7 @@ function StreakModal({
       </ModalDialog.Footer>
     </ModalDialog>
   );
-}
+};
 
 StreakModal.defaultProps = {
   isStreakCelebrationOpen: false,

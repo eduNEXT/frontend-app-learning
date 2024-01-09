@@ -6,7 +6,7 @@ import { PageRoute } from '@edx/frontend-platform/react';
 
 import PageLoading from '../generic/PageLoading';
 
-export default () => {
+export default function () {
   const { path } = useRouteMatch();
   return (
     <div className="flex-grow-1">
@@ -47,4 +47,4 @@ export default () => {
       </Switch>
     </div>
   );
-};
+}

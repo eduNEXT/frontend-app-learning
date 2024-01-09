@@ -224,11 +224,10 @@ describe('Course', () => {
   describe('Sequence alerts display', () => {
     it('renders banner text alert', async () => {
       const courseMetadata = Factory.build('courseMetadata');
-      const sequenceBlocks = [Factory.build(
-        'block', { type: 'sequential', banner_text: 'Some random banner text to display.' },
-      )];
+      const sequenceBlocks = [Factory.build('block', { type: 'sequential', banner_text: 'Some random banner text to display.' })];
       const sequenceMetadata = [Factory.build(
-        'sequenceMetadata', { banner_text: sequenceBlocks[0].banner_text },
+        'sequenceMetadata',
+        { banner_text: sequenceBlocks[0].banner_text },
         { courseId: courseMetadata.id, sequenceBlock: sequenceBlocks[0] },
       )];
 

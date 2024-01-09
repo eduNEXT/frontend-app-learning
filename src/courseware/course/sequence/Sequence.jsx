@@ -30,7 +30,7 @@ import SequenceContent from './SequenceContent';
 import { isMobile } from '../../../experiments/mm-p2p/utils';
 import { MMP2PFlyover, MMP2PFlyoverMobile } from '../../../experiments/mm-p2p';
 
-function Sequence({
+const Sequence = ({
   unitId,
   sequenceId,
   courseId,
@@ -39,7 +39,7 @@ function Sequence({
   previousSequenceHandler,
   intl,
   mmp2p,
-}) {
+}) => {
   const course = useModel('coursewareMeta', courseId);
   const {
     isStaff,
@@ -236,7 +236,7 @@ function Sequence({
       {intl.formatMessage(messages.loadFailure)}
     </p>
   );
-}
+};
 
 Sequence.propTypes = {
   unitId: PropTypes.string,

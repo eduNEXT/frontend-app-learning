@@ -12,7 +12,7 @@ import GradeSummaryTableFooter from './GradeSummaryTableFooter';
 
 import messages from '../messages';
 
-function GradeSummaryTable({ intl, setAllOfSomeAssignmentTypeIsLocked }) {
+const GradeSummaryTable = ({ intl, setAllOfSomeAssignmentTypeIsLocked }) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -137,7 +137,7 @@ function GradeSummaryTable({ intl, setAllOfSomeAssignmentTypeIsLocked }) {
       )}
     </>
   );
-}
+};
 
 GradeSummaryTable.propTypes = {
   intl: intlShape.isRequired,

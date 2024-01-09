@@ -10,7 +10,7 @@ import { getProctoringInfoData } from '../../data/api';
 import { fetchProctoringInfoResolved } from '../../data/slice';
 import { useModel } from '../../../generic/model-store';
 
-function ProctoringInfoPanel({ intl }) {
+const ProctoringInfoPanel = ({ intl }) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -196,7 +196,7 @@ function ProctoringInfoPanel({ intl }) {
       )}
     </>
   );
-}
+};
 
 ProctoringInfoPanel.propTypes = {
   intl: intlShape.isRequired,

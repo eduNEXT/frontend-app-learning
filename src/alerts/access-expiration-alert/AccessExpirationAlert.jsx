@@ -10,7 +10,7 @@ import { Info } from '@edx/paragon/icons';
 import messages from './messages';
 import AccessExpirationAlertMMP2P from './AccessExpirationAlertMMP2P';
 
-function AccessExpirationAlert({ intl, payload }) {
+const AccessExpirationAlert = ({ intl, payload }) => {
   /** [MM-P2P] Experiment */
   const [showMMP2P, setShowMMP2P] = useState(!!window.experiment__home_alert_bShowMMP2P);
   if (window.experiment__home_alert_showMMP2P === undefined) {
@@ -134,7 +134,7 @@ function AccessExpirationAlert({ intl, payload }) {
       {deadlineMessage}
     </Alert>
   );
-}
+};
 
 AccessExpirationAlert.propTypes = {
   intl: intlShape.isRequired,

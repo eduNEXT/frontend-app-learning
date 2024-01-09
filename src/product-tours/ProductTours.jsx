@@ -17,12 +17,12 @@ import {
   fetchTourData,
 } from './data';
 
-function ProductTours({
+const ProductTours = ({
   activeTab,
   courseId,
   isStreakCelebrationOpen,
   org,
-}) {
+}) => {
   if (isStreakCelebrationOpen) {
     return null;
   }
@@ -168,7 +168,7 @@ function ProductTours({
       />
     </>
   );
-}
+};
 
 ProductTours.propTypes = {
   activeTab: PropTypes.string.isRequired,

@@ -17,9 +17,9 @@ import SocialIcons from '../../social-share/SocialIcons';
 import { recordFirstSectionCelebration } from './utils';
 import { useModel } from '../../../generic/model-store';
 
-function CelebrationModal({
+const CelebrationModal = ({
   courseId, intl, isOpen, onClose, ...rest
-}) {
+}) => {
   const { org, celebrations } = useModel('courseHomeMeta', courseId);
   const dispatch = useDispatch();
   const wideScreen = useWindowSize().width >= breakpoints.small.minWidth;
@@ -61,7 +61,7 @@ function CelebrationModal({
       </>
     </StandardModal>
   );
-}
+};
 
 CelebrationModal.propTypes = {
   courseId: PropTypes.string.isRequired,

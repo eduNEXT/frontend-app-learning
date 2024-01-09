@@ -13,11 +13,11 @@ import { saveWeeklyLearningGoal } from '../../data';
 import { useModel } from '../../../generic/model-store';
 import './FlagButton.scss';
 
-function WeeklyLearningGoalCard({
+const WeeklyLearningGoalCard = ({
   daysPerWeek,
   subscribedToReminders,
   intl,
-}) {
+}) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -125,7 +125,7 @@ function WeeklyLearningGoalCard({
       )}
     </Card>
   );
-}
+};
 
 WeeklyLearningGoalCard.propTypes = {
   daysPerWeek: PropTypes.number,

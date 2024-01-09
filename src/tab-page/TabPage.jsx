@@ -17,7 +17,7 @@ import LoadedTabPage from './LoadedTabPage';
 import { setCallToActionToast } from '../course-home/data/slice';
 import LaunchCourseHomeTourButton from '../product-tours/newUserCourseHomeTour/LaunchCourseHomeTourButton';
 
-function TabPage({ intl, ...props }) {
+const TabPage = ({ intl, ...props }) => {
   const {
     activeTabSlug,
     courseId,
@@ -53,9 +53,7 @@ function TabPage({ intl, ...props }) {
   }
 
   if (courseStatus === 'denied') {
-    const redirectUrl = getAccessDeniedRedirectUrl(
-      courseId, activeTabSlug, canLoadCourseware, courseAccess, start, unitId,
-    );
+    const redirectUrl = getAccessDeniedRedirectUrl(courseId, activeTabSlug, canLoadCourseware, courseAccess, start, unitId);
     if (redirectUrl) {
       return (<Redirect to={redirectUrl} />);
     }
@@ -99,7 +97,7 @@ function TabPage({ intl, ...props }) {
       <Footer />
     </>
   );
-}
+};
 
 TabPage.defaultProps = {
   courseId: null,

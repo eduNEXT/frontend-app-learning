@@ -25,7 +25,7 @@ export const CERT_STATUS_TYPE = {
   UNVERIFIED: 'unverified',
 };
 
-function CertificateStatusAlert({ intl, payload }) {
+const CertificateStatusAlert = ({ intl, payload }) => {
   const dispatch = useDispatch();
   const {
     certificateAvailableDate,
@@ -194,7 +194,7 @@ function CertificateStatusAlert({ intl, payload }) {
       )}
     </AlertWrapper>
   );
-}
+};
 
 CertificateStatusAlert.propTypes = {
   intl: intlShape.isRequired,

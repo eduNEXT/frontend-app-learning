@@ -10,7 +10,7 @@ import { unsubscribeFromCourseGoal } from '../data/api';
 import messages from './messages';
 import ResultPage from './ResultPage';
 
-function GoalUnsubscribe({ intl }) {
+const GoalUnsubscribe = ({ intl }) => {
   const { token } = useParams();
   const [error, setError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
@@ -48,7 +48,7 @@ function GoalUnsubscribe({ intl }) {
       </main>
     </>
   );
-}
+};
 
 GoalUnsubscribe.propTypes = {
   intl: intlShape.isRequired,

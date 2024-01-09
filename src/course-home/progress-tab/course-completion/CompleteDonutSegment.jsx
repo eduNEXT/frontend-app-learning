@@ -6,7 +6,7 @@ import { OverlayTrigger, Popover } from '@edx/paragon';
 
 import messages from './messages';
 
-function CompleteDonutSegment({ completePercentage, intl, lockedPercentage }) {
+const CompleteDonutSegment = ({ completePercentage, intl, lockedPercentage }) => {
   if (!completePercentage) {
     return null;
   }
@@ -78,7 +78,7 @@ function CompleteDonutSegment({ completePercentage, intl, lockedPercentage }) {
       )}
     </g>
   );
-}
+};
 
 CompleteDonutSegment.propTypes = {
   completePercentage: PropTypes.number.isRequired,

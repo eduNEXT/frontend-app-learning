@@ -21,7 +21,7 @@ import { getSessionStorage, setSessionStorage } from '../../data/sessionStorage'
 /** [MM-P2P] Experiment */
 import { initCoursewareMMP2P, MMP2PBlockModal } from '../../experiments/mm-p2p';
 
-function Course({
+const Course = ({
   courseId,
   sequenceId,
   unitId,
@@ -29,7 +29,7 @@ function Course({
   previousSequenceHandler,
   unitNavigationHandler,
   windowWidth,
-}) {
+}) => {
   const course = useModel('coursewareMeta', courseId);
   const {
     celebrations,
@@ -130,7 +130,7 @@ function Course({
       { MMP2P.meta.modalLock && <MMP2PBlockModal options={MMP2P} /> }
     </SidebarProvider>
   );
-}
+};
 
 Course.propTypes = {
   courseId: PropTypes.string,
@@ -148,7 +148,7 @@ Course.defaultProps = {
   unitId: null,
 };
 
-function CourseWrapper(props) {
+const CourseWrapper = (props) => {
   // useWindowSize initially returns an undefined width intentionally at first.
   // See https://www.joshwcomeau.com/react/the-perils-of-rehydration/ for why.
   // But <Course> has some tricky window-size-dependent, session-storage-setting logic and React would yell at us if
@@ -160,6 +160,6 @@ function CourseWrapper(props) {
   }
 
   return <Course {...props} windowWidth={windowWidth} />;
-}
+};
 
 export default CourseWrapper;

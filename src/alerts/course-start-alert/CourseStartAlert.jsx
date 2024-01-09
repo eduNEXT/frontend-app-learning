@@ -13,7 +13,7 @@ import { useModel } from '../../generic/model-store';
 
 const DAY_MS = 24 * 60 * 60 * 1000; // in ms
 
-function CourseStartAlert({ payload }) {
+const CourseStartAlert = ({ payload }) => {
   const {
     courseId,
   } = payload;
@@ -90,7 +90,7 @@ function CourseStartAlert({ payload }) {
       />
     </Alert>
   );
-}
+};
 
 CourseStartAlert.propTypes = {
   payload: PropTypes.shape({

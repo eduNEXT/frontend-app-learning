@@ -7,7 +7,7 @@ import { useModel } from '../../../../generic/model-store';
 
 import messages from '../messages';
 
-function GradeSummaryTableFooter({ intl }) {
+const GradeSummaryTableFooter = ({ intl }) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -30,7 +30,7 @@ function GradeSummaryTableFooter({ intl }) {
       </div>
     </DataTable.TableFooter>
   );
-}
+};
 
 GradeSummaryTableFooter.propTypes = {
   intl: intlShape.isRequired,

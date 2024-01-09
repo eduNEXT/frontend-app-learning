@@ -15,13 +15,13 @@ import useLogistrationAlert from '../alerts/logistration-alert';
 
 import ProductTours from '../product-tours/ProductTours';
 
-function LoadedTabPage({
+const LoadedTabPage = ({
   activeTabSlug,
   children,
   courseId,
   metadataModel,
   unitId,
-}) {
+}) => {
   const {
     celebrations,
     canViewLegacyCourseware,
@@ -87,7 +87,7 @@ function LoadedTabPage({
       </main>
     </>
   );
-}
+};
 
 LoadedTabPage.propTypes = {
   activeTabSlug: PropTypes.string.isRequired,

@@ -14,10 +14,10 @@ import messages from './messages';
 ensureConfig(['DISCUSSIONS_MFE_BASE_URL']);
 export const ID = 'DISCUSSIONS';
 
-function DiscussionsTrigger({
+const DiscussionsTrigger = ({
   intl,
   onClick,
-}) {
+}) => {
   const {
     unitId,
     courseId,
@@ -40,7 +40,7 @@ function DiscussionsTrigger({
       <Icon src={QuestionAnswer} className="m-0 m-auto" />
     </SidebarTriggerBase>
   );
-}
+};
 
 DiscussionsTrigger.propTypes = {
   intl: intlShape.isRequired,

@@ -14,7 +14,7 @@ import { DashboardLink, IdVerificationSupportLink, ProfileLink } from '../../../
 import { requestCert } from '../../data/thunks';
 import messages from './messages';
 
-function CertificateStatus({ intl }) {
+const CertificateStatus = ({ intl }) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -247,7 +247,7 @@ function CertificateStatus({ intl }) {
       </Card>
     </section>
   );
-}
+};
 
 CertificateStatus.propTypes = {
   intl: intlShape.isRequired,

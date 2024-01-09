@@ -6,7 +6,7 @@ import { Info } from '@edx/paragon/icons';
 
 import messages from './messages';
 
-function AccessExpirationAlertMMP2P({ payload }) {
+const AccessExpirationAlertMMP2P = ({ payload }) => {
   const {
     accessExpiration,
     userTimezone,
@@ -63,7 +63,7 @@ function AccessExpirationAlertMMP2P({ payload }) {
       on {formatDate(expirationDate, 'expirationBody')}.
     </Alert>
   );
-}
+};
 
 AccessExpirationAlertMMP2P.propTypes = {
   payload: PropTypes.shape({

@@ -17,7 +17,7 @@ import { useModel } from '../../../generic/model-store';
 import { getBadgeListAndColor } from './badgelist';
 import { isLearnerAssignment } from '../utils';
 
-function Day({
+const Day = ({
   date,
   first,
   intl,
@@ -25,7 +25,7 @@ function Day({
   last,
   /** [MM-P2P] Example */
   mmp2p,
-}) {
+}) => {
   const {
     courseId,
   } = useSelector(state => state.courseHome);
@@ -122,7 +122,7 @@ function Day({
       </div>
     </li>
   );
-}
+};
 
 Day.propTypes = {
   date: PropTypes.objectOf(Date).isRequired,

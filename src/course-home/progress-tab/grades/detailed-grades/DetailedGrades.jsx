@@ -13,7 +13,7 @@ import DetailedGradesTable from './DetailedGradesTable';
 
 import messages from '../messages';
 
-function DetailedGrades({ intl }) {
+const DetailedGrades = ({ intl }) => {
   const { administrator } = getAuthenticatedUser();
   const {
     courseId,
@@ -74,7 +74,7 @@ function DetailedGrades({ intl }) {
       </p>
     </section>
   );
-}
+};
 
 DetailedGrades.propTypes = {
   intl: intlShape.isRequired,

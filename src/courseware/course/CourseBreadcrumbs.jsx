@@ -12,9 +12,9 @@ import { useModel, useModels } from '../../generic/model-store';
 import { MMP2PFlyoverTrigger } from '../../experiments/mm-p2p';
 import JumpNavMenuItem from './JumpNavMenuItem';
 
-function CourseBreadcrumb({
+const CourseBreadcrumb = ({
   content, withSeparator, courseId, sequenceId, unitId, isStaff,
-}) {
+}) => {
   const defaultContent = content.filter(destination => destination.default)[0] || { id: courseId, label: '', sequences: [] };
   return (
     <>
@@ -57,7 +57,7 @@ function CourseBreadcrumb({
       </li>
     </>
   );
-}
+};
 CourseBreadcrumb.propTypes = {
   content: PropTypes.arrayOf(
     PropTypes.shape({
