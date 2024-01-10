@@ -48,11 +48,10 @@ describe('Sequence Navigation Tabs', () => {
 
   it('renders unit buttons and dropdown button', async () => {
     let container = null;
+    useIndexOfLastVisibleChild.mockReturnValue([-1, null, null]);
+    const booyah = render(<SequenceNavigationTabs {...mockData} />);
     await act(async () => {
-      useIndexOfLastVisibleChild.mockReturnValue([-1, null, null]);
-      const booyah = render(<SequenceNavigationTabs {...mockData} />);
       container = booyah.container;
-
       const dropdownToggle = container.querySelector('.dropdown-toggle');
       // We need to await this click here, which requires us to await the `act` as well above.
       // https://github.com/testing-library/react-testing-library/issues/535
