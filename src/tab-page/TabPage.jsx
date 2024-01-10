@@ -54,7 +54,12 @@ function TabPage({ intl, ...props }) {
 
   if (courseStatus === 'denied') {
     const redirectUrl = getAccessDeniedRedirectUrl(
-      courseId, activeTabSlug, canLoadCourseware, courseAccess, start, unitId,
+      courseId,
+      activeTabSlug,
+      canLoadCourseware,
+      courseAccess,
+      start,
+      unitId,
     );
     if (redirectUrl) {
       return (<Redirect to={redirectUrl} />);
