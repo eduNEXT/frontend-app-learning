@@ -1,7 +1,7 @@
 import { getConfig } from '@edx/frontend-platform';
 import { injectIntl, intlShape } from '@edx/frontend-platform/i18n';
 import { AppContext, ErrorPage } from '@edx/frontend-platform/react';
-import { Modal } from '@edx/paragon';
+import { ModalDialog } from '@edx/paragon';
 import PropTypes from 'prop-types';
 import React, {
   Suspense, useCallback, useContext, useEffect, useLayoutEffect, useState,
@@ -164,7 +164,7 @@ function Unit({
         isBookmarked={unit.bookmarked}
         isProcessing={unit.bookmarkedUpdateState === 'loading'}
       />
-      { !mmp2p.state.isEnabled && contentTypeGatingEnabled && unit.containsContentTypeGatedContent && (
+      {!mmp2p.state.isEnabled && contentTypeGatingEnabled && unit.containsContentTypeGatedContent && (
         <Suspense
           fallback={(
             <PageLoading
@@ -175,8 +175,8 @@ function Unit({
           <LockPaywall courseId={courseId} />
         </Suspense>
       )}
-      { /** [MM-P2P] Experiment */ }
-      { mmp2p.meta.showLock && (
+      { /** [MM-P2P] Experiment */}
+      {mmp2p.meta.showLock && (
         <MMP2PLockPaywall options={mmp2p} />
       )}
       {!mmp2p.meta.blockContent && shouldDisplayHonorCode && (
@@ -190,7 +190,7 @@ function Unit({
           <HonorCode courseId={courseId} />
         </Suspense>
       )}
-      { /** [MM-P2P] Experiment (conditional) */ }
+      { /** [MM-P2P] Experiment (conditional) */}
       {!mmp2p.meta.blockContent && !shouldDisplayHonorCode && !hasLoaded && !showError && (
         <PageLoading
           srMessage={intl.formatMessage(messages.loadingSequence)}
@@ -200,32 +200,28 @@ function Unit({
         <ErrorPage />
       )}
       {modalOptions.open && (
-        <Modal
-          body={(
-            <>
-              {modalOptions.body
-                ? <div className="unit-modal">{ modalOptions.body }</div>
-                : (
-                  <iframe
-                    title={modalOptions.title}
-                    allow={IFRAME_FEATURE_POLICY}
-                    frameBorder="0"
-                    src={modalOptions.url}
-                    style={{
-                      width: '100%',
-                      height: '100vh',
-                    }}
-                  />
-                )}
-            </>
-          )}
+        <ModalDialog
+          className="modal-lti"
           onClose={() => { setModalOptions({ open: false }); }}
-          open
-          dialogClassName="modal-lti"
-        />
+          isOpen
+        >
+          <ModalDialog.Body className="modal-lti">
+            {modalOptions.body
+              ? <div className="unit-modal">{modalOptions.body}</div>
+              : (
+                <iframe
+                  title={modalOptions.title}
+                  allow={IFRAME_FEATURE_POLICY}
+                  frameBorder="0"
+                  src={modalOptions.url}
+                  style={{ width: '100%', height: '100vh' }}
+                />
+              )}
+          </ModalDialog.Body>
+        </ModalDialog>
       )}
-      { /** [MM-P2P] Experiment (conditional) */ }
-      { !mmp2p.meta.blockContent && !shouldDisplayHonorCode && (
+      { /** [MM-P2P] Experiment (conditional) */}
+      {!mmp2p.meta.blockContent && !shouldDisplayHonorCode && (
         <div className="unit-iframe-wrapper">
           <iframe
             id="unit-iframe"

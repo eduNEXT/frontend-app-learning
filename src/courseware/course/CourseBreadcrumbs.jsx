@@ -28,7 +28,7 @@ function CourseBreadcrumb({
         whiteSpace: 'nowrap',
       }}
       >
-        { getConfig().ENABLE_JUMPNAV !== 'true' || content.length < 2 || !isStaff
+        {getConfig().ENABLE_JUMPNAV !== 'true' || content.length < 2 || !isStaff
           ? (
             <Link
               className="text-primary-500"
@@ -40,7 +40,7 @@ function CourseBreadcrumb({
             </Link>
           )
           : (
-            <SelectMenu isLink defaultMessage={defaultContent.label}>
+            <SelectMenu variant="link" defaultMessage={defaultContent.label}>
               {content.map(item => (
                 <JumpNavMenuItem
                   isDefault={item.default}
