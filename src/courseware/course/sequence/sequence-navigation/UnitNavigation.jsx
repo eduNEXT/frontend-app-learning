@@ -23,7 +23,7 @@ const UnitNavigation = ({
   onClickNext,
 }) => {
   const {
-    isFirstUnit, isLastUnit, nextLink, previousLink,
+    isFirstUnit, isLastUnit, nextLink, previousLink, navigationDisabled,
   } = useSequenceNavigationMetadata(sequenceId, unitId);
   const { courseId } = useSelector(state => state.courseware);
 
@@ -34,7 +34,7 @@ const UnitNavigation = ({
       <Button
         variant="outline-secondary"
         className="previous-button mr-2 d-flex align-items-center justify-content-center"
-        disabled={disabled}
+        disabled={disabled || navigationDisabled}
         onClick={onClickPrevious}
         as={disabled ? undefined : Link}
         to={disabled ? undefined : previousLink}
@@ -55,7 +55,7 @@ const UnitNavigation = ({
         variant="outline-primary"
         className="next-button d-flex align-items-center justify-content-center"
         onClick={onClickNext}
-        disabled={disabled}
+        disabled={disabled || navigationDisabled}
         as={disabled ? undefined : Link}
         to={disabled ? undefined : nextLink}
       >
