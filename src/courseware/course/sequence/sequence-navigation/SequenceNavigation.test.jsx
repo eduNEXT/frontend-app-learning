@@ -182,5 +182,5 @@ describe('Sequence Navigation', () => {
     render(<SequenceNavigation {...testData} />, { store: testStore, wrapWithRouter: true });
     expect(screen.queryByRole('link', { name: /previous/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /next/i })).not.toBeInTheDocument();
-  })
+  });
 });
