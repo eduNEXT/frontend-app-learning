@@ -161,4 +161,26 @@ describe('Sequence Navigation', () => {
     fireEvent.click(screen.getByRole('link', { name: /next/i }));
     expect(nextHandler).toHaveBeenCalledTimes(1);
   });
+
+  it('removes "Previous" and "Next" buttons when navigation is disabled', async () => {
+    const sequenceBlocks = [Factory.build(
+      'block',
+      { type: 'sequential', children: unitBlocks.map(block => block.id) },
+      { courseId: courseMetadata.id },
+    )];
+    const sequenceMetadata = [Factory.build(
+      'sequenceMetadata',
+      { navigationDisabled: true },
+      { courseId: courseMetadata.id, unitBlocks, sequenceBlock: sequenceBlocks[0] },
+    )];
+    const testStore = await initializeTestStore({ unitBlocks, sequenceBlocks, sequenceMetadata }, false);
+    const testData = {
+      ...mockData,
+      sequenceId: sequenceBlocks[0].id,
+      onNavigate: jest.fn(),
+    };
+    render(<SequenceNavigation {...testData} />, { store: testStore, wrapWithRouter: true });
+    expect(screen.queryByRole('link', { name: /previous/i })).not.toBeInTheDocument();
+    expect(screen.queryByRole('link', { name: /next/i })).not.toBeInTheDocument();
+  })
 });
