@@ -86,13 +86,17 @@ const Course = ({
         <title>{`${pageTitleBreadCrumbs.join(' | ')} | ${getConfig().SITE_NAME}`}</title>
       </Helmet>
       <div className="position-relative d-flex align-items-start">
-      {!navigationDisabled && <CourseBreadcrumbs
-                courseId={courseId}
-                sectionId={section ? section.id : null}
-                sequenceId={sequenceId}
-                isStaff={isStaff}
-                unitId={unitId}
-      />}
+        {!navigationDisabled && (
+        <>
+          <CourseBreadcrumbs
+            courseId={courseId}
+            sectionId={section ? section.id : null}
+            sequenceId={sequenceId}
+            isStaff={isStaff}
+            unitId={unitId}
+          />
+        </>
+        )}
         {shouldDisplayTriggers && (
           <>
             <Chat
