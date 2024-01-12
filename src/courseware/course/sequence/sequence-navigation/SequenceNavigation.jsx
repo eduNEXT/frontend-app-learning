@@ -72,17 +72,16 @@ const SequenceNavigation = ({
 
   const renderPreviousButton = () => {
     const disabled = isFirstUnit;
-    const prevButtonDisabled = disabled || navigationDisabled;
     const prevArrow = isRtl(getLocale()) ? ChevronRight : ChevronLeft;
     return navigationDisabledPrevSequence || (
       <Button
         variant="link"
         className="previous-btn"
         onClick={previousHandler}
-        disabled={prevButtonDisabled}
+        disabled={disabled}
         iconBefore={prevArrow}
-        as={prevButtonDisabled ? undefined : Link}
-        to={prevButtonDisabled ? undefined : previousLink}
+        as={disabled ? undefined : Link}
+        to={disabled ? undefined : previousLink}
       >
         {shouldDisplayNotificationTriggerInSequence ? null : intl.formatMessage(messages.previousButton)}
       </Button>
@@ -101,10 +100,10 @@ const SequenceNavigation = ({
         variant="link"
         className="next-btn"
         onClick={nextHandler}
-        disabled={nextButtonDisabled}
+        disabled={disabled}
         iconAfter={nextArrow}
-        as={nextButtonDisabled ? undefined : Link}
-        to={nextButtonDisabled ? undefined : nextLink}
+        as={disabled ? undefined : Link}
+        to={disabled ? undefined : nextLink}
       >
         {shouldDisplayNotificationTriggerInSequence ? null : buttonText}
       </Button>
