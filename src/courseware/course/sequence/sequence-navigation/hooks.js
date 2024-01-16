@@ -10,7 +10,7 @@ export function useSequenceNavigationMetadata(currentSequenceId, currentUnitId) 
   const courseId = useSelector(state => state.courseware.courseId);
   const courseStatus = useSelector(state => state.courseware.courseStatus);
   const sequenceStatus = useSelector(state => state.courseware.sequenceStatus);
-  const navigationDisabled = sequence && sequence.navigationDisabled;
+
 
   // If we don't know the sequence and unit yet, then assume no.
   if (courseStatus !== 'loaded' || sequenceStatus !== 'loaded' || !currentSequenceId || !currentUnitId) {
