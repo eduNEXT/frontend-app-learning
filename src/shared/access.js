@@ -7,6 +7,9 @@ import { getLocale } from '@edx/frontend-platform/i18n';
 export function getAccessDeniedRedirectUrl(courseId, activeTabSlug, courseAccess, start) {
   let url = null;
   switch (courseAccess.errorCode) {
+    case 'seb_access_denied':
+      url = `/seb-openedx/courseware/access-denied/${courseId}`;
+      break;
     case 'audit_expired':
       url = `/redirect/dashboard?access_response_error=${courseAccess.additionalContextUserMessage}`;
       break;
