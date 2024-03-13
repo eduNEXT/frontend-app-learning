@@ -126,15 +126,6 @@ const SequenceLink = ({
             </span>
           </span>
         </div>
-        {hideFromTOC && (
-        <div className="row w-100 my-2 mx-4 pl-3">
-          <span className="small d-flex">
-            <Icon className="mr-2" src={Block} data-testid="hide-from-toc-sequence-link-icon" />
-            <span data-testid="hide-from-toc-sequence-link-text">
-              {intl.formatMessage(messages.hiddenSequenceLink)}
-            </span>
-          </span>
-        </div>
         )}
         <div className="row w-100 m-0 ml-3 pl-3">
           <small className="text-body pl-2">
