@@ -3,7 +3,7 @@ import React from 'react';
 
 import { ErrorPage } from '@edx/frontend-platform/react';
 import { StrictDict } from '@edx/react-unit-test-utils';
-import { ModalDialog, Modal } from '@openedx/paragon';
+import { ModalDialog } from '@openedx/paragon';
 
 import PageLoading from '@src/generic/PageLoading';
 import * as hooks from './hooks';
@@ -104,12 +104,16 @@ const ContentIFrame = ({
           </ModalDialog>
 
         ) : (
-          <Modal
-            body={modalContent}
+          <ModalDialog
             dialogClassName="modal-lti"
             onClose={handleModalClose}
-            open
-          />
+            isOpen
+            hasCloseButton={false}
+          >
+            <ModalDialog.Body className={modalOptions.modalBodyClassName}>
+              {modalContent}
+            </ModalDialog.Body>
+          </ModalDialog>
         )
       )}
     </>
