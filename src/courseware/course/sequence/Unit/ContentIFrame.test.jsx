@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { ErrorPage } from '@edx/frontend-platform/react';
-import { Modal } from '@edx/paragon';
+import { ModalDialog } from '@edx/paragon';
 import { shallow } from '@edx/react-unit-test-utils';
 
 import PageLoading from '../../../../generic/PageLoading';
@@ -11,7 +11,13 @@ import ContentIFrame, { IFRAME_FEATURE_POLICY, testIDs } from './ContentIFrame';
 
 jest.mock('@edx/frontend-platform/react', () => ({ ErrorPage: 'ErrorPage' }));
 
-jest.mock('@edx/paragon', () => ({ Modal: 'Modal' }));
+jest.mock('@edx/paragon', () => jest.requireActual('@edx/react-unit-test-utils')
+  .mockComponents({
+    Modal: 'Modal',
+    ModalDialog: {
+      Body: 'ModalDialog.Body',
+    },
+  }));
 
 jest.mock('../../../../generic/PageLoading', () => 'PageLoading');
 
@@ -132,7 +138,7 @@ describe('ContentIFrame Component', () => {
     });
     it('does not display modal if modalOptions returns isOpen: false', () => {
       el = shallow(<ContentIFrame {...props} />);
-      expect(el.instance.findByType(Modal).length).toEqual(0);
+      expect(el.instance.findByType(ModalDialog).length).toEqual(0);
     });
     describe('if modalOptions.isOpen', () => {
       const testModalOpenAndHandleClose = () => {
@@ -144,10 +150,13 @@ describe('ContentIFrame Component', () => {
         beforeEach(() => {
           hooks.useModalIFrameData.mockReturnValueOnce({ ...modalIFrameData, modalOptions: modalOptions.withBody });
           el = shallow(<ContentIFrame {...props} />);
-          [component] = el.instance.findByType(Modal);
+          [component] = el.instance.findByType(ModalDialog);
         });
         it('displays Modal with div wrapping provided body content if modal.body is provided', () => {
-          expect(component.props.body).toEqual(<div className="unit-modal">{modalOptions.withBody.body}</div>);
+          const content = component.findByType(ModalDialog.Body)[0].children[0];
+          expect(content.matches(shallow(
+            <div className="unit-modal">{modalOptions.withBody.body}</div>,
+          ))).toEqual(true);
         });
         testModalOpenAndHandleClose();
       });
@@ -155,11 +164,12 @@ describe('ContentIFrame Component', () => {
         beforeEach(() => {
           hooks.useModalIFrameData.mockReturnValueOnce({ ...modalIFrameData, modalOptions: modalOptions.withUrl });
           el = shallow(<ContentIFrame {...props} />);
-          [component] = el.instance.findByType(Modal);
+          [component] = el.instance.findByType(ModalDialog);
         });
         testModalOpenAndHandleClose();
         it('displays Modal with iframe to provided url if modal.body is not provided', () => {
-          expect(component.props.body).toEqual(
+          const content = component.findByType(ModalDialog.Body)[0].children[0];
+          expect(content.matches(shallow(
             <iframe
               title={modalOptions.withUrl.title}
               allow={IFRAME_FEATURE_POLICY}
@@ -167,7 +177,7 @@ describe('ContentIFrame Component', () => {
               src={modalOptions.withUrl.url}
               style={{ width: '100%', height: modalOptions.withUrl.height }}
             />,
-          );
+          ))).toEqual(true);
         });
       });
     });
