@@ -32,7 +32,7 @@
   "dependencies": {
     "@edx/brand": "npm:@edx/brand-openedx@1.2.0",
     "@edx/frontend-component-footer": "npm:@edunext/frontend-component-footer@13.0.0-alpha.5",
-    "@edx/frontend-component-header": "npm:@edunext/frontend-component-header@5.0.0-alpha.5",
+    "@edx/frontend-component-header": "npm:@edunext/frontend-component-header@5.0.0-alpha.5-academa",
     "@edx/frontend-lib-special-exams": "npm:@edunext/frontend-lib-special-exams@1.15.0-alpha.7",
     "@edx/frontend-platform": "npm:@edunext/frontend-platform@3.7.0-alpha.14",
     "@edx/paragon": "22.0.0-alpha.13",
