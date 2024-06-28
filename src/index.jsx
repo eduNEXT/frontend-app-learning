@@ -37,6 +37,7 @@ import LiveTab from './course-home/live-tab/LiveTab';
 import CourseAccessErrorPage from './generic/CourseAccessErrorPage';
 import DecodePageRoute from './decode-page-route';
 import { DECODE_ROUTES, ROUTES } from './constants';
+import SEBCourseAccessErrorPage from './generic/SEBCourseAccessErrorPage';
 
 subscribe(APP_READY, () => {
   ReactDOM.render(
@@ -50,6 +51,7 @@ subscribe(APP_READY, () => {
             <Routes>
               <Route path={ROUTES.UNSUBSCRIBE} element={<PageWrap><GoalUnsubscribe /></PageWrap>} />
               <Route path={ROUTES.REDIRECT} element={<PageWrap><CoursewareRedirectLandingPage /></PageWrap>} />
+              <Route path={'/seb-openedx/courseware/access-denied/:courseId'} element={<SEBCourseAccessErrorPage />} />
               <Route
                 path={DECODE_ROUTES.ACCESS_DENIED}
                 element={<DecodePageRoute><CourseAccessErrorPage /></DecodePageRoute>}
