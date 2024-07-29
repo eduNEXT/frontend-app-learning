@@ -328,9 +328,13 @@
   max-width: 640px;
   margin: 0 auto;
 
+  @media (--pgn-size-breakpoint-max-width-xs) {
+    flex-direction: column;
+    gap: var(--pgn-spacing-spacer-base);
+  }
+
   .previous-button,
   .next-button {
-    white-space: nowrap;
     border-radius: 4px;
 
     &:focus:before {
@@ -340,10 +344,31 @@
 
   .next-button {
     flex-basis: 75%;
+
+     @media (--pgn-size-breakpoint-max-width-xs) {
+       flex-basis: 100%;
+     }
   }
 
   .previous-button {
     flex-basis: 25%;
+
+     @media (--pgn-size-breakpoint-max-width-xs) {
+       flex-basis: 100%;
+     }
+  }
+}
+
+.top-unit-navigation {
+  max-width: 100%;
+  justify-content: flex-end;
+
+  .next-button,
+  .previous-button {
+    @media (--pgn-size-breakpoint-min-width-md) {
+      flex-basis: auto;
+      min-width: 8rem;
+    }
   }
 }
 
