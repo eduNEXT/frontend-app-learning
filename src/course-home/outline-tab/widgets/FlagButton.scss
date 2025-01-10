@@ -1,5 +1,5 @@
-@import "~@edx/brand/paragon/variables";
-@import "~@edx/brand/paragon/overrides";
+@use "~@edx/brand/paragon/variables";
+@use "~@edx/brand/paragon/overrides";
 
 .flag-button {
   background-color: var(--pgn-color-white);

@@ -1,7 +1,8 @@
-@use "@openedx/paragon/styles/css/core/custom-media-breakpoints.css" as paragonCustomMediaBreakpoints;
+@use "@openedx/paragon/styles/css/core/custom-media-breakpoints" as paragonCustomMediaBreakpoints;
 
-@import "~@edx/frontend-component-footer/dist/footer";
-@import "~@edx/frontend-component-header/dist/index";
+@use "sass:meta";
+@use "~@edx/frontend-component-footer/dist/footer";
+@use "~@edx/frontend-component-header/dist/index";
 
 
 #root {
@@ -442,23 +443,23 @@
 }
 
 // Import component-specific sass files
-@import "courseware/course/celebration/CelebrationModal.scss";
-@import "courseware/course/sidebar/sidebars/discussions/Discussions.scss";
-@import "courseware/course/sidebar/sidebars/notifications/NotificationIcon.scss";
-@import "courseware/course/sequence/lock-paywall/LockPaywall.scss";
-@import "shared/streak-celebration/StreakCelebrationModal.scss";
-@import "courseware/course/content-tools/calculator/calculator.scss";
-@import "courseware/course/content-tools/contentTools.scss";
-@import "course-home/dates-tab/timeline/Day.scss";
-@import "generic/upgrade-notification/UpgradeNotification.scss";
-@import "generic/upsell-bullets/UpsellBullets.scss";
-@import "course-home/outline-tab/widgets/ProctoringInfoPanel.scss";
-@import "course-home/outline-tab/widgets/FlagButton.scss";
-@import "course-home/progress-tab/course-completion/CompletionDonutChart.scss";
-@import "course-home/progress-tab/grades/course-grade/GradeBar.scss";
-@import "courseware/course/course-exit/CourseRecommendations";
-@import "product-tours/newUserCourseHomeTour/NewUserCourseHomeTourModal.scss";
-@import "course-home/courseware-search/courseware-search.scss";
-@import "course-tabs/course-tabs-navigation.scss";
-@import "courseware/course/sidebar/common/SidebarBase.scss";
-@import "courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss";
+@include meta.load-css("courseware/course/celebration/CelebrationModal.scss");
+@include meta.load-css("courseware/course/sidebar/sidebars/discussions/Discussions.scss");
+@include meta.load-css("courseware/course/sidebar/sidebars/notifications/NotificationIcon.scss");
+@include meta.load-css("courseware/course/sequence/lock-paywall/LockPaywall.scss");
+@include meta.load-css("shared/streak-celebration/StreakCelebrationModal.scss");
+@include meta.load-css("courseware/course/content-tools/calculator/calculator.scss");
+@include meta.load-css("courseware/course/content-tools/contentTools.scss");
+@include meta.load-css("course-home/dates-tab/timeline/Day.scss");
+@include meta.load-css("generic/upgrade-notification/UpgradeNotification.scss");
+@include meta.load-css("generic/upsell-bullets/UpsellBullets.scss");
+@include meta.load-css("course-home/outline-tab/widgets/ProctoringInfoPanel.scss");
+@include meta.load-css("course-home/outline-tab/widgets/FlagButton.scss");
+@include meta.load-css("course-home/progress-tab/course-completion/CompletionDonutChart.scss");
+@include meta.load-css("course-home/progress-tab/grades/course-grade/GradeBar.scss");
+@include meta.load-css("courseware/course/course-exit/CourseRecommendations");
+@include meta.load-css("product-tours/newUserCourseHomeTour/NewUserCourseHomeTourModal.scss");
+@include meta.load-css("course-home/courseware-search/courseware-search.scss");
+@include meta.load-css("course-tabs/course-tabs-navigation.scss");
+@include meta.load-css("courseware/course/sidebar/common/SidebarBase.scss");
+@include meta.load-css("courseware/course/sidebar/sidebars/course-outline/CourseOutlineTray.scss");
