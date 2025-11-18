@@ -1,5 +1,5 @@
-intl_imports = node ./node_modules/@edx/frontend-platform/i18n/scripts/intl-imports.js
-transifex_utils = node ./node_modules/@edx/frontend-platform/i18n/scripts/transifex-utils.js
+intl_imports = node ./node_modules/@edx/frontend-platform/src/i18n/scripts/intl-imports.js
+transifex_utils = node ./node_modules/@edx/frontend-platform/src/i18n/scripts/transifex-utils.js
 i18n = ./src/i18n
 transifex_input = $(i18n)/transifex_input.json
 
