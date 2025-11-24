@@ -35,7 +35,7 @@
     "@edx/brand": "npm:@openedx/brand-openedx@^1.2.2",
     "@edx/browserslist-config": "1.5.0",
     "@edx/frontend-component-footer": "npm:@edunext/frontend-component-footer@14.6.0-alpha.1",
-    "@edx/frontend-component-header": "github:edunext/frontend-component-header#ase/lang-selector-6.6.0",
+    "@edx/frontend-component-header": "npm:@edunext/frontend-component-header@6.6.0-alpha.1",
     "@edx/frontend-lib-learning-assistant": "npm:@edunext/frontend-lib-learning-assistant@2.20.0-alpha.1",
     "@edx/frontend-lib-special-exams": "npm:@edunext/frontend-lib-special-exams@3.5.0-alpha.1",
     "@edx/frontend-platform": "npm:@edunext/frontend-platform@^8.3.11-alpha.1",
